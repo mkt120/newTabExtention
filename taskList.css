@@ -1,0 +1,13 @@
+.TaskListHeaderView {
+    padding: 5px;
+    background-color: #a00;
+}
+
+.TaskItemAddButton {
+    float: right;
+}
+
+.TaskListItemView {
+    padding: 5px 0px 5px 5px;
+    vertical-align: middle;
+}

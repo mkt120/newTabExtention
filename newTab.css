@@ -1,0 +1,55 @@
+div#root {
+    display: flex;
+}
+
+
+/**
+ * ブックマーク
+ */
+
+div#bookmark {
+    vertical-align: top;
+    width: 350px;
+    height: 98vh;
+    overflow: scroll;
+    float: left;
+    border: solid black 1px;
+}
+
+
+/**
+* 閲覧履歴
+*/
+
+div#history {
+    vertical-align: top;
+    width: 350px;
+    overflow: scroll;
+    height: 98vh;
+    float: left;
+}
+
+div#other {
+    flex: 1;
+    display: flex;
+}
+
+div#task-list {
+    width: 75%;
+    display: inline-block;
+    height: 100%;
+}
+
+div#other1 {
+    width: 25%;
+}
+
+
+/**
+* リンクリスト
+**/
+
+div#google-products {
+    display: inline-block;
+    width: 150px;
+}

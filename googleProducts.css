@@ -1,0 +1,7 @@
+img.product-logo {
+  float: right;
+  padding: 15px 15px 15px 15px;
+  cursor: pointer; /** カーソルを指に */
+  width: 100px;
+  height: 100px;
+}

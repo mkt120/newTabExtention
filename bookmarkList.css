@@ -1,0 +1,45 @@
+/**
+ * ブックマークの各要素
+ */
+
+.bookmarkListView {
+    background-color: #ffffffaa;
+}
+
+
+/**
+ * タイトルView要素
+ */
+
+.bookmarkTitleView {
+    background: skyblue;
+    /** カーソルを指に */
+    cursor: pointer;
+    padding: 3px 3px 3px 8px;
+}
+
+
+/**
+ * タイトルView内のテキスト要素
+ */
+
+.bookmarkTitleTextView {
+    padding: 0px 0px 0px 5px;
+    vertical-align: middle;
+}
+
+.bookmarkTitleIconView {
+    padding: 0px 2px 0px 2px;
+    vertical-align: middle;
+    background: gray;
+}
+
+.bookmarkChildViews {
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+.bookmarkChildView {
+    border: none;
+    padding: 5px 5px 5px 5px;
+}
