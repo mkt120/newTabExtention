@@ -5,6 +5,7 @@ const ID_TASK_LIST_VIEW = "task_list_view";
 const CLASS_TASK_LIST_VIEW = 'TaskListView';
 const CLASS_TASK_ITEM_VIEW = 'TaskItemView';
 const CLASS_TASK_ITEM_ADD_BUTTON_VIEW = 'TaskItemAddButton';
+const CLASS_TASK_ITEM_COMPLETE_BUTTON_VIEW = 'TaskItemCompleteButton';
 
 const TASK_INFO_TITLE = 'title';
 
@@ -40,9 +41,9 @@ function createList(taskList) {
         listView.firstChild.remove();
     }
 
-    for (i in taskList) {
-        addTaskItemView(taskList[i]);
-    }
+    taskList.forEach(task => {
+        addTaskItemView(task);
+    });
 }
 
 function createHeader(document) {
@@ -53,6 +54,7 @@ function createHeader(document) {
     // 追加するボタン
     var addButton = document.createElement('button');
     addButton.textContent = "追加";
+    addButton.classList.add(CLASS_TASK_ITEM_ADD_BUTTON_VIEW);
     addButton.onclick = function(event) {
         let title = prompt('タスクを入力してください');
         if (title == null || title.length == 0) {
@@ -69,7 +71,7 @@ function createHeader(document) {
 }
 
 function saveTaskInfo(taskInfo) {
-    var list = localStorage.getItem(LOCAL_STORAGE_KEY_TASK_LIST);
+    var list = localStorage[LOCAL_STORAGE_KEY_TASK_LIST];
     if (list == null) {
         list = '[]';
     }
@@ -86,14 +88,14 @@ function addTaskItemView(taskInfo) {
 
 function createTaskItemView(taskInfo) {
     // 親View
-    var item = document.createElement('div');
+    var item = document.createElement('p');
     item.classList.add(CLASS_TASK_ITEM_VIEW);
     let title = taskInfo[TASK_INFO_TITLE];
     item.textContent = title;
 
     // 完了ボタン
     let button = document.createElement('button');
-    button.classList.add(CLASS_TASK_ITEM_ADD_BUTTON_VIEW);
+    button.classList.add(CLASS_TASK_ITEM_COMPLETE_BUTTON_VIEW);
 
     button.textContent = '完了';
     button.onclick = function(event) {

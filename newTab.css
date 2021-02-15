@@ -1,5 +1,6 @@
-div#root {
-    display: flex;
+#root {
+    width: 90vw;
+    margin: 0 auto;
 }
 
 
@@ -7,12 +8,11 @@ div#root {
  * ブックマーク
  */
 
-div#bookmark {
-    vertical-align: top;
-    width: 350px;
-    height: 98vh;
-    overflow: scroll;
+#bookmark {
     float: left;
+    width: 350px;
+    height: 95vh;
+    overflow: scroll;
     border: solid black 1px;
 }
 
@@ -21,43 +21,37 @@ div#bookmark {
 * 閲覧履歴
 */
 
-div#history {
-    vertical-align: top;
+#history {
+    float: left;
     width: 350px;
     overflow: scroll;
-    height: 98vh;
+    height: 95vh;
+    border: solid black 1px;
+}
+
+#task-list {
     float: left;
-}
-
-div#other {
-    flex: 1;
-    display: flex;
-}
-
-div#task-list {
-    width: 75%;
-    display: inline-block;
+    width: 350px;
     height: 100%;
+    border: solid black 1px;
 }
 
-div#other1 {
-    width: 25%;
+#right {
+    float: right;
 }
 
 
 /**
-* リンクリスト
+* ショートカットリスト
 **/
 
-div#google-products {
-    display: inline-block;
+#shortcut {
     width: 150px;
 }
 
 label>input {
     /* アップロードボタンのスタイルを無効にする */
     display: none;
-    float: left;
 }
 
 label {
@@ -69,8 +63,5 @@ label {
     /* ラベルとテキスト間の余白を指定する */
     border: double 4px #AAAAAA;
     /* ラベルのボーダーを指定する */
-}
-
-input#image_select {
-    float: left;
+    float: right;
 }

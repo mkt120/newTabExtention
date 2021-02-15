@@ -29,12 +29,12 @@ function createBookmarkTree() {
         // rootが空なのでchildrenを渡す
         bookmark = bookmark[0]['children'];
 
-        for (var i in bookmark) {
-            if (bookmark[i]['children'] != null && bookmark[i]['children'].length > 0) {
-                var parents = createBookmarks(document, bookmark[i]);
+        bookmark.forEach(item => {
+            if (item['children'] != null && item['children'].length > 0) {
+                var parents = createBookmarks(document, item);
                 root.appendChild(parents);
             }
-        }
+        });
     });
 }
 
@@ -60,15 +60,15 @@ function createBookmarks(document, bookmarkTreeNode) {
 
     // 子Bookmarkを作る
     var children = bookmarkTreeNode['children'];
-    for (var i in children) {
+    children.forEach(item => {
         var child;
-        if (children[i]['children'] != null && children[i]['children'].length > 0) {
-            child = createBookmarks(document, children[i]);
+        if (item['children'] != null && item['children'].length > 0) {
+            child = createBookmarks(document, item);
         } else {
-            child = createBookmarkChildView(document, children[i]);
+            child = createBookmarkChildView(document, item);
         }
         childViews.appendChild(child);
-    }
+    });
     parent.appendChild(childViews);
 
     if (isOpen == 'true') {

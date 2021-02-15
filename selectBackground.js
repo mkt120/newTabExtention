@@ -10,7 +10,9 @@ function onSelectFile(e) {
     reader.onload = function(e) {
         var body = document.body;
         body.style.background = 'url(' + e.target.result + ')';
-        image.setAttribute('background-image', e.target.result);
+        body.style.backgroundSize = 'cover';
+        body.style.backgroundRepeat = 'no-repeat';
+        body.style.backgroundPosition = 'center center';
     }
     reader.readAsDataURL(e.target.files[0]);
 }
