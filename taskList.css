@@ -1,17 +1,16 @@
 .TaskListHeaderView {
+    padding: 5px;
     vertical-align: middle;
     background-color: #a00;
 }
 
-.TaskItemAddButton {
-    float: right;
+.TaskListView {
+    vertical-align: middle;
+    padding-left: 5px;
 }
 
 .TaskItemView {
-    height: 50px;
     vertical-align: middle;
-}
-
-.TaskItemCompleteButton {
-    float: right;
+    word-wrap: break-word;
+    padding: 5px 0px 5px 5px;
 }

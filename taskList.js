@@ -28,22 +28,7 @@ function createTaskList() {
 
     //localStorage.clear();
     // ストレージからタスクリストを取得
-    var taskList = localStorage[LOCAL_STORAGE_KEY_TASK_LIST];
-    if (taskList != null) {
-        taskList = JSON.parse(taskList);
-        createList(taskList);
-    }
-}
-
-function createList(taskList) {
-    var listView = document.getElementById(ID_TASK_LIST_VIEW);
-    while (listView.firstChild) {
-        listView.firstChild.remove();
-    }
-
-    taskList.forEach(task => {
-        addTaskItemView(task);
-    });
+    createList();
 }
 
 function createHeader(document) {
@@ -64,10 +49,51 @@ function createHeader(document) {
             'title': title
         };
         saveTaskInfo(item);
-        addTaskItemView(item);
+        var listView = document.getElementById(ID_TASK_LIST_VIEW);
+        var view = createTaskItemView(item);
+        listView.appendChild(view);
     };
     header.appendChild(addButton);
     return header;
+}
+
+function createList() {
+    var listView = document.getElementById(ID_TASK_LIST_VIEW);
+    while (listView.firstChild) {
+        listView.firstChild.remove();
+    }
+    var taskList = localStorage[LOCAL_STORAGE_KEY_TASK_LIST];
+    if (taskList != null) {
+        taskList = JSON.parse(taskList);
+        taskList.forEach(task => {
+            var view = createTaskItemView(task);
+            listView.appendChild(view);
+        });
+    }
+}
+
+function createTaskItemView(taskInfo) {
+    // 親View
+    var p = document.createElement('p');
+    p.classList.add(CLASS_TASK_ITEM_VIEW);
+    let title = taskInfo[TASK_INFO_TITLE];
+
+    // 要素の設定
+    if (title != null && title.length > 0) {
+        // タイトル・URLを設定
+        p.textContent = title;
+    }
+    // 完了ボタン
+    let button = document.createElement('button');
+    button.classList.add(CLASS_TASK_ITEM_COMPLETE_BUTTON_VIEW);
+
+    button.textContent = '完了';
+    button.onclick = function(event) {
+        let list = removeTaskInfo(taskInfo);
+        createList(list);
+    };
+    p.appendChild(button);
+    return p;
 }
 
 function saveTaskInfo(taskInfo) {
@@ -78,32 +104,6 @@ function saveTaskInfo(taskInfo) {
     list = JSON.parse(list);
     list.push(taskInfo);
     localStorage.setItem(LOCAL_STORAGE_KEY_TASK_LIST, JSON.stringify(list));
-}
-
-function addTaskItemView(taskInfo) {
-    console.log("addTaskItemView title=" + taskInfo[TASK_INFO_TITLE]);
-    var listView = document.getElementById(ID_TASK_LIST_VIEW);
-    listView.appendChild(createTaskItemView(taskInfo));
-}
-
-function createTaskItemView(taskInfo) {
-    // 親View
-    var item = document.createElement('p');
-    item.classList.add(CLASS_TASK_ITEM_VIEW);
-    let title = taskInfo[TASK_INFO_TITLE];
-    item.textContent = title;
-
-    // 完了ボタン
-    let button = document.createElement('button');
-    button.classList.add(CLASS_TASK_ITEM_COMPLETE_BUTTON_VIEW);
-
-    button.textContent = '完了';
-    button.onclick = function(event) {
-        let list = removeTaskInfo(taskInfo);
-        createList(list);
-    };
-    item.appendChild(button);
-    return item;
 }
 
 function removeTaskInfo(taskInfo) {

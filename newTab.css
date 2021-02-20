@@ -32,7 +32,8 @@
 #task-list {
     float: left;
     width: 350px;
-    height: 100%;
+    overflow: scroll;
+    height: 95vh;
     border: solid black 1px;
 }
 
