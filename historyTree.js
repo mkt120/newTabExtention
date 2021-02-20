@@ -24,7 +24,7 @@ function createHistoryTree() {
 }
 
 ////////////////////////////////////////////
-// 子ブックマークを作る
+// 子供要素を作る
 ////////////////////////////////////////////
 function createChild(document, child) {
     var title = child['title'];
