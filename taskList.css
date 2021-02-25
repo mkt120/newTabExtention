@@ -14,3 +14,11 @@
     word-wrap: break-word;
     padding: 5px 0px 5px 5px;
 }
+
+.TaskItemAddButton {
+    display: inline;
+    float: right;
+    color: #AAAAAA;
+    /* ラベルテキストの色を指定する */
+    background-color: #006DD9;
+}
