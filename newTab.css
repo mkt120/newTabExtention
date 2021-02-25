@@ -1,6 +1,7 @@
 #root {
-    width: 90vw;
+    width: 1280px;
     margin: 0 auto;
+    overflow: auto;
 }
 
 
