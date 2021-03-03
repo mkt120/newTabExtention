@@ -2,6 +2,7 @@
     width: 1280px;
     margin: 0 auto;
     overflow: auto;
+    position: relative;
 }
 
 
@@ -49,7 +50,7 @@
 **/
 
 #shortcut {
-    width: 150px;
+    width: 200px;
 }
 
 label>input {
@@ -67,4 +68,37 @@ label {
     border: double 4px #AAAAAA;
     /* ラベルのボーダーを指定する */
     float: right;
+}
+
+#setting-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 64px;
+    height: 64px;
+    /** カーソルを指に */
+    cursor: pointer;
+}
+
+.modal-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 1;
+    cursor: pointer;
+}
+
+#setting-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    padding: 50px;
+    background-color: #fff;
+    z-index: 2;
 }

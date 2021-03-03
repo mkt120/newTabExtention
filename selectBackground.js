@@ -1,10 +1,3 @@
-window.addEventListener('load', function() {
-    var view = document.getElementById('image_select')
-    view.onchange = ('change', function(e) {
-        onSelectFile(e)
-    });
-});
-
 function onSelectFile(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
