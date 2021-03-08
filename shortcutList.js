@@ -31,20 +31,22 @@ const DEFAULT_SETTINGS = [{
     }
 ];
 window.addEventListener('load', function() {
-    console.log("googleProduct window.onLoad");
-    if (localStorage[KEY_SHORTCUT_SETTING] == null) {
-        console.log("googleProduct null");
-        addDefaultSetting();
-    }
-    bindShortcut();
+    chrome.storage.local.get(KEY_SHORTCUT_SETTING, function(value) {
+        var setting = value[KEY_SHORTCUT_SETTING];
+        console.log("googleProduct setting=" + JSON.stringify(setting));
+        if (setting == null || setting.length == 0) {
+            console.log("googleProduct setting is null");
+            setting = JSON.stringify(DEFAULT_SETTINGS);
+            addDefaultSetting();
+        }
+        bindShortcut(setting);
+    });
 });
 
-function bindShortcut() {
-    var setting = localStorage[KEY_SHORTCUT_SETTING];
+function bindShortcut(setting) {
+    console.log("bindShortcut setting=" + setting);
     setting = JSON.parse(setting);
     setting.forEach(element => {
-        console.log("window.onLoad");
-        console.log(element);
         var img = document.createElement("img");
         img.src = element.icon;
         img.classList.add('product-logo');
@@ -57,5 +59,9 @@ function bindShortcut() {
 }
 
 function addDefaultSetting() {
-    localStorage.setItem(KEY_SHORTCUT_SETTING, JSON.stringify(DEFAULT_SETTINGS));
+    var setting = JSON.stringify(DEFAULT_SETTINGS);
+    console.log("addDefaultSetting setting=" + setting);
+    chrome.storage.local.set({ KEY_SHORTCUT_SETTING: setting }, function() {
+        console.log("addDefaultSetting YES");
+    });
 }
