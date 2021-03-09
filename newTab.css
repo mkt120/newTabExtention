@@ -58,7 +58,7 @@ label>input {
     display: none;
 }
 
-label {
+#setting-background-button {
     color: #AAAAAA;
     /* ラベルテキストの色を指定する */
     background-color: #006DD9;
@@ -91,12 +91,11 @@ label {
     cursor: pointer;
 }
 
-#setting-modal {
+.setting-modal {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
     max-width: 600px;
     padding: 50px;
     background-color: #fff;

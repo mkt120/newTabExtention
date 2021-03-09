@@ -16,11 +16,12 @@ function showModal() {
     });
 
     var label = document.createElement('label');
+    label.setAttribute('id', 'setting-background-button');
     label.textContent = '背景設定';
     label.appendChild(input);
 
     var modal = document.createElement('div');
-    modal.setAttribute('id', 'setting-modal');
+    modal.classList.add('setting-modal');
     modal.appendChild(label);
 
     var div = document.createElement('div');
