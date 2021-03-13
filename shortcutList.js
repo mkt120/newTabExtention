@@ -1,38 +1,38 @@
 const KEY_SHORTCUT_SETTING = "key_shortcut_setting";
 const DEFAULT_SETTINGS = [{
-        'title': 'GoogleDrive',
-        'icon': 'https://lh3.googleusercontent.com/rCwHBRBJV4wFiEIN_Mlboj94_TGJxyJtBh-MBFL4y1aZdO4hb7_Uc_PpXRyAoN7O9m_Zc1wSyp3H1vsnb829QE7t9KyGNJY9A1a3QQ',
-        'url': 'https://drive.google.com/drive/my-drive'
-    },
-    {
-        'title': 'Gmail',
-        'icon': 'https://lh3.googleusercontent.com/0rpHlrX8IG77awQMuUZpQ0zGWT7HRYtpncsuRnFo6V3c8Lh2hPjXnEuhDDd-OsLz1vua4ld2rlUYFAaBYk-rZCODmi2eJlwUEVsZgg',
-        'url': 'https://mail.google.com/mail/u/0/'
-    },
-    {
-        'title': 'YouTube',
-        'icon': 'https://lh3.googleusercontent.com/3_OFn2skqHXk-UQ-9RUdNrDl_HQJrMCxks5teQcUrF_bOSeDG1hD8j83FeD31W8hASZCvubzsGfumuJq8kvvSAq03wY87RZ7Otx_DF4',
-        'url': 'https://www.youtube.com/'
-    },
-    {
-        'title': 'PlayBooks',
-        'icon': 'https://lh3.googleusercontent.com/ebfqZ6Jmupx7K805rWoti7Xkfbe5BMU89k2f0INXuK0dh1cYdUneF6Gw5qB1T0P-W0NspIOEE4yhGE590HNFhr_cdpRhON95EyP7',
-        'url': 'https://play.google.com/store/books?hl=ja'
-    },
-    {
-        'title': 'Blogger',
-        'icon': 'https://lh3.googleusercontent.com/JtYUq9HfkkOryxudgp34oqI8qFu9a6mmL64OXjcDX7mfEwcX_pxmTdurvxssofY4swTY2c_M1Kk5o1a863CGTiBZkxxuYXfjiNgz=h120',
-        'url': 'https://www.blogger.com/'
-    },
-    {
-        'title': 'GoogleCalendar',
-        'icon': 'https://lh3.googleusercontent.com/DaaQa-Y-b3_IAhu6SBFb2vRl8PFR5iuCLwLszc16_OTlLrEFvFF9P4CS0ui-414nG9016ul3dQD1R3mHtmMx4P1bIA-zRXuPpFN4yw=h120',
-        'url': 'https://calendar.google.com/calendar/u/0/r'
-    }
+    'title': 'GoogleDrive',
+    'icon': 'https://lh3.googleusercontent.com/rCwHBRBJV4wFiEIN_Mlboj94_TGJxyJtBh-MBFL4y1aZdO4hb7_Uc_PpXRyAoN7O9m_Zc1wSyp3H1vsnb829QE7t9KyGNJY9A1a3QQ',
+    'url': 'https://drive.google.com/drive/my-drive'
+},
+{
+    'title': 'Gmail',
+    'icon': 'https://lh3.googleusercontent.com/0rpHlrX8IG77awQMuUZpQ0zGWT7HRYtpncsuRnFo6V3c8Lh2hPjXnEuhDDd-OsLz1vua4ld2rlUYFAaBYk-rZCODmi2eJlwUEVsZgg',
+    'url': 'https://mail.google.com/mail/u/0/'
+},
+{
+    'title': 'YouTube',
+    'icon': 'https://lh3.googleusercontent.com/3_OFn2skqHXk-UQ-9RUdNrDl_HQJrMCxks5teQcUrF_bOSeDG1hD8j83FeD31W8hASZCvubzsGfumuJq8kvvSAq03wY87RZ7Otx_DF4',
+    'url': 'https://www.youtube.com/'
+},
+{
+    'title': 'PlayBooks',
+    'icon': 'https://lh3.googleusercontent.com/ebfqZ6Jmupx7K805rWoti7Xkfbe5BMU89k2f0INXuK0dh1cYdUneF6Gw5qB1T0P-W0NspIOEE4yhGE590HNFhr_cdpRhON95EyP7',
+    'url': 'https://play.google.com/store/books?hl=ja'
+},
+{
+    'title': 'Blogger',
+    'icon': 'https://lh3.googleusercontent.com/JtYUq9HfkkOryxudgp34oqI8qFu9a6mmL64OXjcDX7mfEwcX_pxmTdurvxssofY4swTY2c_M1Kk5o1a863CGTiBZkxxuYXfjiNgz=h120',
+    'url': 'https://www.blogger.com/'
+},
+{
+    'title': 'GoogleCalendar',
+    'icon': 'https://lh3.googleusercontent.com/DaaQa-Y-b3_IAhu6SBFb2vRl8PFR5iuCLwLszc16_OTlLrEFvFF9P4CS0ui-414nG9016ul3dQD1R3mHtmMx4P1bIA-zRXuPpFN4yw=h120',
+    'url': 'https://calendar.google.com/calendar/u/0/r'
+}
 ];
 
 window.addEventListener('load', function () {
-    //    reset();
+//       reset();
     chrome.storage.local.get(KEY_SHORTCUT_SETTING, function (value) {
         var setting = value[KEY_SHORTCUT_SETTING];
         console.log("shortcutList setting=" + JSON.stringify(setting));
@@ -61,6 +61,10 @@ function bindShortcut(setting) {
 }
 
 function addShortCut(url, label) {
+    if (!url.startsWith('http')) {
+        url = 'https://' + url;
+    }
+
     convertUrltoBase64(url, function (result) {
         chrome.storage.local.get(KEY_SHORTCUT_SETTING, function (value) {
             var setting = value[KEY_SHORTCUT_SETTING];
@@ -73,9 +77,14 @@ function addShortCut(url, label) {
                 'url': url,
                 'label': label,
                 'icon': result
-            })
-            chrome.storage.local.set({ "key_shortcut_setting": JSON.stringify(setting) }, function () {
+            });
+            chrome.storage.local.set({ 'key_shortcut_setting': JSON.stringify(setting) }, function () {
                 console.log("addDefaultSetting YES setting=" + JSON.stringify(setting));
+                var shortcut = document.getElementById('shortcut');
+                while(shortcut.firstChild) {
+                    shortcut.firstChild.remove();
+                }
+                bindShortcut(JSON.stringify(setting));
             });
         });
     });
@@ -93,7 +102,7 @@ function addshortcutButton() {
 }
 
 function showShortCutModal() {
-    var modal = document.createElement('div');
+    var modal = document.createElement('form');
     modal.classList.add('setting-modal');
 
     // ラベル
@@ -133,14 +142,14 @@ function reset() {
 
 function convertUrltoBase64(targetUrl, callback) {
     var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange  = function () {
+    xhr.onreadystatechange = function () {
         console.log("XMLHttpRequest.responseText:" + XMLHttpRequest.responseText);
         if (xhr.readyState == 4) {
             var reader = new FileReader();
             reader.onloadend = function () {
                 callback(reader.result);
             }
-            reader.readAsDataURL(xhr.response);    
+            reader.readAsDataURL(xhr.response);
         }
     };
     let url = new URL(targetUrl);

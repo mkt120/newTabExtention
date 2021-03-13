@@ -1,8 +1,10 @@
 img.product-logo {
     float: left;
-    margin: 16px 16px 16px 16px;
+    margin : 4px 4px 4px 4px;
+    padding: 12px 12px 12px 12px;
     cursor: pointer;
     /** カーソルを指に */
     width: 64px;
     height: 64px;
+    background-color: #ffffffaa;
 }
