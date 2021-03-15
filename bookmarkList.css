@@ -10,10 +10,15 @@
  */
 
 .bookmarkTitleView {
-    background: skyblue;
+    background-color: skyblue;
     /** カーソルを指に */
     cursor: pointer;
     padding: 3px 3px 3px 8px;
+    user-select: none;
+}
+
+.bookmarkTitleView:hover {
+    background-color: steelblue;
 }
 
 
@@ -21,15 +26,19 @@
  * タイトルView内のテキスト要素
  */
 
-.bookmarkTitleTextView {
+ .bookmarkTitleTextView {
     padding: 0px 0px 0px 5px;
     vertical-align: middle;
 }
 
 .bookmarkTitleIconView {
-    padding: 0px 2px 0px 2px;
+    padding: 0px 2px 2px 2px;
     vertical-align: middle;
     background: gray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .bookmarkChildViews {
@@ -38,6 +47,9 @@
 }
 
 .bookmarkChildView {
-    border: none;
     padding: 5px 5px 5px 5px;
+}
+
+.bookmarkChildView a:hover {
+    text-decoration: none;
 }
