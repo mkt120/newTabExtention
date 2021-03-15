@@ -1,24 +1,52 @@
 .TaskListHeaderView {
     padding: 5px;
-    vertical-align: middle;
-    background-color: #a00;
+    background-color: skyblue;
+}
+
+.TaskListHeaderText {
+    margin-left: 5px;
 }
 
 .TaskListView {
     vertical-align: middle;
-    padding-left: 5px;
 }
 
 .TaskItemView {
-    vertical-align: middle;
     word-wrap: break-word;
-    padding: 5px 0px 5px 5px;
+    padding: 5px;
 }
 
 .TaskItemAddButton {
-    display: inline;
-    float: right;
-    color: #AAAAAA;
-    /* ラベルテキストの色を指定する */
-    background-color: #006DD9;
+    /** カーソルを指に */
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+    background-color: cornflowerblue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.TaskItemAddButton:hover {
+    background-color: darkslateblue;
+}
+
+.TaskItemCompleteButton {
+    /** カーソルを指に */
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+    background-color: cornflowerblue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.TaskItemCompleteButton:hover {
+    background-color: darkslateblue;
+}
+
+.TaskItemText {
+    margin-left: 5px;
 }
