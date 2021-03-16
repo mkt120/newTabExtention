@@ -113,6 +113,7 @@ function showShortCutModal() {
     // URL入力
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
+    input.setAttribute('autofocus', 'autofocus');
     modal.appendChild(input);
 
     // 追加ボタン
