@@ -5,7 +5,8 @@
     "description": "拡張機能です",
     "permissions": [
         "https://www.google.com/*",
-        "bookmarks", "history", "storage"
+        "bookmarks", "history", "storage",
+        "unlimitedStorage"
     ],
     "chrome_url_overrides": {
         "newtab": "newtab.html"
