@@ -38,6 +38,7 @@
     overflow: scroll;
     height: 95vh;
     border: solid black 1px;
+    background-color: #ffffffaa;
 }
 
 #right {
@@ -78,6 +79,20 @@ label>input {
     height: 64px;
     /** カーソルを指に */
     cursor: pointer;
+    margin : 4px 4px 4px 4px;
+    padding: 12px 12px 12px 12px;
+
+    background-color: #ffffffaa;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+#setting-button:hover {
+    cursor: pointer;
+    background-color: gray;
+    opacity: 0.7;
 }
 
 .modal-background {
