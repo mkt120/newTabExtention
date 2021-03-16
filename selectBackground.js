@@ -16,6 +16,13 @@ function onSelectFile(e) {
     reader.readAsDataURL(e.target.files[0]);
 }
 
+function clearBackground() {
+    chrome.storage.local.remove(BACKGROUND_IMAGE, function (value) {
+        var body = document.body;
+        body.style.background = '';
+    });
+}
+
 function setBackground(result) {
     console.log("setBackground result=" + result);
     var body = document.body;

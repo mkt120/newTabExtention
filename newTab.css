@@ -59,16 +59,22 @@ label>input {
     display: none;
 }
 
-#setting-background-button {
-    color: #AAAAAA;
-    /* ラベルテキストの色を指定する */
-    background-color: #006DD9;
+.backgroundSettingButton {
     /* ラベルの背景色を指定する */
+    background-color: cyan;
+    margin: 5px;
     padding: 10px;
     /* ラベルとテキスト間の余白を指定する */
     border: double 4px #AAAAAA;
     /* ラベルのボーダーを指定する */
     float: right;
+    cursor: pointer;
+    user-select: none;
+}
+
+.backgroundSettingButton:active {
+    /* ラベルの背景色を指定する */
+    background-color: darkcyan;
 }
 
 #setting-button {
@@ -103,7 +109,6 @@ label>input {
     height: 100%;
     background-color: rgba(0, 0, 0, .8);
     z-index: 1;
-    cursor: pointer;
 }
 
 .setting-modal {
@@ -115,4 +120,24 @@ label>input {
     padding: 50px;
     background-color: #fff;
     z-index: 2;
+}
+
+.closeButton {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 5px;
+    padding: 5px;
+    /* ラベルのボーダーを指定する */
+    cursor: pointer;
+    user-select: none;
+    /* ラベルとテキスト間の余白を指定する */
+    border: double 4px #AAAAAA;
+
+    /* ラベルの背景色を指定する */
+    background-color: cyan;
+}
+.closeButton:active {
+    /* ラベルの背景色を指定する */
+    background-color: darkcyan;
 }
