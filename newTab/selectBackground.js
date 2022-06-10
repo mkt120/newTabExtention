@@ -1,6 +1,6 @@
 const BACKGROUND_IMAGE = "background_image";
 window.addEventListener('load', function () {
-    console.log("setBackground document.cookie=" + document.cookie);
+//    console.log("setBackground document.cookie=" + document.cookie);
     chrome.storage.local.get(BACKGROUND_IMAGE, function (value) {
         var result = value[BACKGROUND_IMAGE];
         setBackground(result);
@@ -24,7 +24,7 @@ function clearBackground() {
 }
 
 function setBackground(result) {
-    console.log("setBackground result=" + result);
+//    console.log("setBackground result=" + result);
     var body = document.body;
     body.style.background = 'url(' + result + ')';
     body.style.backgroundSize = 'cover';

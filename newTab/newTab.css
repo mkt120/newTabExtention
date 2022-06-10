@@ -14,7 +14,7 @@
     float: left;
     width: 350px;
     height: 95vh;
-    overflow: scroll;
+    overflow: hidden scroll;
     border: solid black 1px;
     background-color: #ffffffaa;
 }
@@ -27,7 +27,7 @@
 #history {
     float: left;
     width: 350px;
-    overflow: scroll;
+    overflow: hidden scroll;
     height: 95vh;
     border: solid black 1px;
 }
@@ -35,7 +35,7 @@
 #task-list {
     float: left;
     width: 350px;
-    overflow: scroll;
+    overflow: hidden scroll;
     height: 95vh;
     border: solid black 1px;
     background-color: #ffffffaa;
