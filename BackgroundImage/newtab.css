@@ -1,0 +1,23 @@
+/**
+ * ブックマーク
+ */
+#bookmark{
+  width: 350px;
+  min-height: 100px;
+  max-height: 500px;
+  padding: 5px;
+  display: block;
+  background:red;
+}
+
+/**
+ * ブックマークの各要素
+ */
+#div_text{
+  width: 340px;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  padding: 5px;
+  white-space: nowrap;
+  background:white;
+}
