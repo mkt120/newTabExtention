@@ -1,0 +1,12 @@
+{
+  "name": "GoogleNews newTab",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "拡張機能です",
+  "permissions": [
+  ],
+  "chrome_url_overrides" : {
+    "newtab": "newtab.html"
+  },
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}

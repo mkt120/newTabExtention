@@ -1,0 +1,24 @@
+
+/**
+ * ベースのView
+ */
+.NewsItemView {
+  height: auto;
+  width: 500px;
+  padding: 3px;
+  margin: 5px;
+  overflow: hidden;
+}
+
+/**
+ * サムネイル
+ */
+.NewsImg {
+  width:100px;
+  float: left;
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline;
+  padding: 0px 5px 0px 0px;
+}
